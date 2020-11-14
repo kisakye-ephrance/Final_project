@@ -88,5 +88,11 @@ app.get('/about',(req,res)=>{
   app.get('/farmerOdash', (req,res)=>{
     res.render('farmerOdash', {title:'FO Dash'})
   })
+
+  //GET FARMER DASH
+  app.get('/farmerdash', (req,res)=>{
+    res.render('farmerdash', {title: 'FA Dash'})
+  });
+  
   //created a server and have it listen on port 3000
 app.listen(3000, ()=> console.log('listening on port 3000'))
