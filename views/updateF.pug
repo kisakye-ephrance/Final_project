@@ -1,0 +1,47 @@
+DOCTYPE html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    title 
+  body
+header.card-header
+        h4.card-title Welcome p Here is your information
+        form(method="post" action="/updateF?id="+user._id)
+            table.table
+                thead.thead-dark
+                    tr
+                        th Name
+                        td 
+                            input.form-control(value = user.Fname name ="FOname")
+                    
+                   
+                    tr
+                        th Gender
+                        td 
+                            label Male&nbsp
+                            input(value= "male" type="radio" checked = user.gender==="male" name="gender") 
+                            label &nbspFemale&nbsp
+                            input(value= "female" type="radio" checked = user.gender==="female" name="gender")
+                    tr
+                        th DOR
+                        td 
+                            input.form-control(value = user.dor name ="dor")
+                    tr
+                        th Nin
+                        td 
+                            input.form-control(value = user.nin name ="nin")
+
+                    tr
+                        th PhonNum
+                        td 
+                            input.form-control(value = user.phonNum name ="phonNum")
+
+                    tr
+                        th Ward
+                        td 
+                            input.form-control(value = user.ward name ="ward")
+
+                        td(colspan="2")
+                            button.btn.btn-dark.btn-block(type="submit") Update

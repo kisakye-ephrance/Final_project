@@ -1,0 +1,92 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/sign.css')
+  title Document
+.header
+  .logo
+    img(src='images/ufarm_logo.png', alt='logo', height='85px', width='90px')
+br
+br
+br
+.container
+  .main
+    form(action='/registerFO' name='farmeroneform' method='POST')
+      h1
+        | REGISTRATION FORM
+      .form-group
+        .form-row
+          .col-sm-4
+            input#name.form-control(type='text', placeholder=' Name', name='FOname', required)
+          .col-sm-4
+            input#email.form-control(type='email', placeholder='Email', name='FOemail', required)
+      //
+        <div class="form-group">
+      .form-row
+        .col-sm-2
+          input#phonum.form-control(type='number', placeholder='UniqueFOnumber', name='foNum', required)
+        .col-sm-2
+          input#dob.form-control(type='text', placeholder='dateOfBirth', name='dob', required)
+        .col-sm-3
+          input#ward.form-control(type='text', placeholder='Ward name', name='ward', required)
+      br
+      .form-row
+        .col-sm-2
+          input#dor.form-control(type='text', placeholder='dateOfRegisttration', name='dor', required)
+        .col-sm-3
+          input#nin.form-control(type='text', placeholder='NIN', name='nin', required)
+      br
+      .form-row
+        .col-sm-2
+          input.form-control(type='text', placeholder='Phonenumber', name='phonNum', required)
+        .col-sm-2
+          input.form-control(type='text', placeholder='periodOfStay', name='stayPeriod', required)
+        .col-sm-3
+          input.form-control(type='text', placeholder='residenceType', name='residence', required)
+          br
+      fieldset.form-group
+        .row
+          legend.col-form-label.col-sm-2.pt-0 Gender
+          .col-sm-10
+            .form-check
+              input#femaleRadio.form-check-input(type='radio', name='gender', value='female', )
+              label.form-check-label(for='femaleRadio')
+                | Female
+            .form-check
+              input#maleRadio.form-check-input(type='radio', name='gender', value='male', )
+              label.form-check-label(for='maleRadio')
+                | Male
+                
+                br
+                br
+      fieldset.form-group
+        .row
+          legend.col-form-label.col-sm-2.pt-0 Activities
+          .col-sm-10
+            .form-check
+              input#activities.form-check-input(type='checkbox', name='activities', value='Register farmers', )
+              label.form-check-label(for='checkbox')
+                | Register Farmers
+            .form-check
+              input#maleRadio.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
+              label.form-check-label(for='checkbox')
+                | Check for quality
+                form-check
+              input#maleRadio.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
+              label.form-check-label(for='checkbox')
+                | Approve products
+    
+      br
+      .form-row
+        .col-sm-5
+          h3 Directions
+          textarea.form-control(required)
+      
+      br
+      input#submitDetails(type='submit', name='submitDetails', value='Submit' onsubmit='access_farmeroneform()')
+      br
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

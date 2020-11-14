@@ -1,0 +1,52 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/home.css')
+  title
+nav.navbar.navbar-expand-sm.bg-light.navbar-secondary.justify-content-center
+  a.navbar-brand
+    img(src='images/ufarm_logo.png', alt='logo', width='100px', height='100px')
+  ul.navbar-nav
+    li.nav-item.active
+      a.nav-link(href='/about') About
+    li.nav-item
+      a.nav-link(href='/contact') Contact
+    li.nav-item
+      a.nav-link(href='/signin') Sign in
+    li.nav-item
+      a.nav-link(href='#') Produce
+//
+  <div class="homepage_info">
+  <p>
+  YOUR NUMBER ONE SOURCE OF INFORMATION
+  </p>
+  </div>
+.container-fluid
+  .row
+    #demo.carousel.slide(data-ride='carousel')
+      // Indicators
+      ul.carousel-indicators
+        li.active(data-target='#demo', data-slide-to='0')
+        li(data-target='#demo', data-slide-to='1')
+        li(data-target='#demo', data-slide-to='2')
+      // The slideshow
+      .carousel-inner
+        .carousel-item.active
+          img(src='images/HorticultureLivemint-k3U--621x414@LiveMint.webp', alt='')
+        .carousel-item
+          img(src='images/women.jpg', alt='')
+          .carousel-caption
+            h3 Los Angeles
+            p We had such a great time in LA!
+        .carousel-item
+          img(src='images/fruits.jpg', alt='')
+      // Left and right controls
+      a.carousel-control-prev(href='#demo', data-slide='prev')
+        span.carousel-control-prev-icon
+      a.carousel-control-next(href='#demo', data-slide='next')
+        span.carousel-control-next-icon
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
