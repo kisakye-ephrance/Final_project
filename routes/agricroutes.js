@@ -12,17 +12,17 @@ router.get('/registerFO',(req,res)=>{
 })
 
 //registering farmer
-router.get('/farmerregistration', (req,res)=>{
-    res.render("registerUfarmer")
-})
+// router.get('/farmerregistration', (req,res)=>{
+//     res.render("registerUfarmer")
+// })
 
 //router.get('/', (req,res)=>{
    //  res.render("signinagric")
   //});
 
-router.post('/', (req,res)=>{
-    res.redirect("/farmerregistration")
-});
+// router.post('/', (req,res)=>{
+//     res.redirect("/farmerregistration")
+// });
 
 //router.post('/registerFO', async(req,res)=>{
    // console.log(req.body);
@@ -61,16 +61,29 @@ router.post('/registerFO', async(req,res)=>{
 });
 
     //retrieve data for AO
-// router.get('/userlist', async(req,res)=>{
-//     try{
+router.get('/userlist', async(req,res)=>{
+    if (req.session.user){
+        try{        
+            let items = await AgricO.find();
+            console.log(items);
+            res.render("registeredaFO", {users:items, currentUser:req.session.user});
+       }catch(err){
+           console.log('random message')
+          res.status(400).send('unable to retrieve data');
+        }   
+    } else{
+        console.log('cant find session')
+        res.redirect('/login')
+    };
+//     //try{        
 //         let items = await AgricO.find();
 //         console.log(items);
 //         res.render("registeredaFO", {users:items});
-//     }catch(err){
-//         console.log('random message')
-//         res.status(400).send('unable to retrieve data');
+//    }catch(err){
+//        console.log('random message')
+//       res.status(400).send('unable to retrieve data');
 //     }
-// });   
+ });   
 
 
 //delete data
@@ -87,23 +100,42 @@ router.post('/registerFO', async(req,res)=>{
 
 //route for updating AO data
     router.get('/update/:id', async (req, res) => {
-        try {
-            const updateUser = await AgricO.findOne({ _id:req.params.id })
-            res.render('updateFO', { user: updateUser })
-        } catch (err) {
-            res.status(400).send("Unable to find item in the database");
+        if(req.seesion.user){
+            try {
+                const updateUser = await AgricO.findOne({ _id:req.params.id })
+                res.render('updateFO', { user: updateUser })
+            } catch (err) {
+                res.status(400).send("Unable to find item in the database");
+            }
+        }else{
+            console.log('cant find session')
+            res.redirect('/login')
         }
+        // try {
+        //     const updateUser = await AgricO.findOne({ _id:req.params.id })
+        //     res.render('updateFO', { user: updateUser })
+        // } catch (err) {
+        //     res.status(400).send("Unable to find item in the database");
+        // }
     })
 
     
 
 router.post('/update', async (req, res) => {
-    try {
-        await AgricO.findOneAndUpdate({_id:req.query.id}, req.body)
-        res.redirect('/userlist');
-    } catch (err) {
-        res.status(404).send("Unable to update item in the database");
-    }    
+    if(req.session.user){
+        try {
+            await AgricO.findOneAndUpdate({_id:req.query.id}, req.body)
+            res.redirect('/userlist');
+        } catch (err) {
+            res.status(404).send("Unable to update item in the database");
+        }    
+    }
+    // try {
+    //     await AgricO.findOneAndUpdate({_id:req.query.id}, req.body)
+    //     res.redirect('/userlist');
+    // } catch (err) {
+    //     res.status(404).send("Unable to update item in the database");
+    // }    
 });
 
 //save data for FO

@@ -74,7 +74,7 @@ passport.serializeUser(AgricO.serializeUser());
 passport.deserializeUser(AgricO.deserializeUser());
 
 app.use('/', agricroutes);
-app.use('/login',loginRoutes);
+app.use('/',loginRoutes);
 
 app.get('/about',(req,res)=>{
     res.render("about")
