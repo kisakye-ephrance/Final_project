@@ -21,7 +21,7 @@ br
           .col-sm-4
             input#name.form-control(type='text', placeholder=' Name', name='FOname', required)
           .col-sm-4
-            input#email.form-control(type='email', placeholder='Email', name='FOemail', required)
+            input#username.form-control(type='text', placeholder='Username', name='username', required)
       //
         <div class="form-group">
       .form-row
@@ -37,6 +37,8 @@ br
           input#dor.form-control(type='text', placeholder='dateOfRegisttration', name='dor', required)
         .col-sm-3
           input#nin.form-control(type='text', placeholder='NIN', name='nin', required)
+        .col-sm-3
+            input#password.form-control(type='password', placeholder='Password', name='password', required)
       br
       .form-row
         .col-sm-2
@@ -70,11 +72,11 @@ br
               label.form-check-label(for='checkbox')
                 | Register Farmers
             .form-check
-              input#maleRadio.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
+              input#activities.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
               label.form-check-label(for='checkbox')
                 | Check for quality
-                form-check
-              input#maleRadio.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
+            .form-check
+              input#activities.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
               label.form-check-label(for='checkbox')
                 | Approve products
     

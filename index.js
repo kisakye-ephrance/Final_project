@@ -1,15 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser') ;
 const path = require('path');
+const AgricO  = require('./models/agricO');
 const agricroutes = require('./routes/agricroutes');
+const loginRoutes = require('./routes/loginroutes');
 
 //require mongoose
 const mongoose = require('mongoose');
 
+//require passport mongoose to see the passwors as salt and hash
+const passportLocalMongoose = require('passport-local-mongoose');
+
 //require env
 require('dotenv').config();
 
-//express session
+//express session requiring to help us save the express session cookie and track details of the person
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
@@ -28,7 +33,8 @@ const app = express();
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex:true
+    useCreateIndex:true,
+    useFindAndModify:false
   });
   
 
@@ -62,7 +68,13 @@ app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//passport configs
+passport.use(AgricO.createStrategy());
+passport.serializeUser(AgricO.serializeUser());
+passport.deserializeUser(AgricO.deserializeUser());
+
 app.use('/', agricroutes);
+app.use('/login',loginRoutes);
 
 app.get('/about',(req,res)=>{
     res.render("about")
@@ -93,6 +105,11 @@ app.get('/about',(req,res)=>{
   app.get('/farmerdash', (req,res)=>{
     res.render('farmerdash', {title: 'FA Dash'})
   });
-  
+
+  //app.get('/signin', (req,res)=>{
+    //res.render("signinagric")
+ // })
+
+  //app.post
   //created a server and have it listen on port 3000
 app.listen(3000, ()=> console.log('listening on port 3000'))

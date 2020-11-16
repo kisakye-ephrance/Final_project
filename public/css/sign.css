@@ -35,7 +35,7 @@ input[type=sumbit] {
 }*/
 
 body{
-    background-color: brown;
+    background-image:url('/images/depositphotos_130393092-stock-photo-fruits-background-fruits-on-wood.jpg')
 }
 
 /*button{
@@ -45,4 +45,3 @@ body{
 
 /*.button[type=[button]{
 width: 300px;
-}/*

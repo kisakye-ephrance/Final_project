@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //require the model
-const AgricO  = require('../models/AgricO');
+const AgricO  = require('../models/agricO');
 const FarmerO = require('../models/FarmerO');
 
 //registering farmer one
@@ -15,6 +15,14 @@ router.get('/registerFO',(req,res)=>{
 router.get('/farmerregistration', (req,res)=>{
     res.render("registerUfarmer")
 })
+
+//router.get('/', (req,res)=>{
+   //  res.render("signinagric")
+  //});
+
+router.post('/', (req,res)=>{
+    res.redirect("/farmerregistration")
+});
 
 //router.post('/registerFO', async(req,res)=>{
    // console.log(req.body);
@@ -32,12 +40,19 @@ router.get('/farmerregistration', (req,res)=>{
 //save data for AO
 router.post('/registerFO', async(req,res)=>{
     try{
-        const agricO = new AgricO(req.body);
-        await  agricO.save(()=>{
-            console.log('save successful')
-            res.redirect('/userlist')
+        const items = new AgricO(req.body);
+        await AgricO.register(items, req.body.password, (err)=>{
+            if (err)
+            {
+                throw(err)
+            }
+            res.redirect('/login')
+        // const agricO = new AgricO(req.body);
+        // await  agricO.save(()=>{
+        //     console.log('save successful')
+        //     res.redirect('/userlist')
            // res.send('thank you for registration')
-        })
+            })
     }
     catch(err){
         res.status(400).send('sorry something')
@@ -46,16 +61,16 @@ router.post('/registerFO', async(req,res)=>{
 });
 
     //retrieve data for AO
-router.get('/userlist', async(req,res)=>{
-    try{
-        let items = await AgricO.find();
-        console.log(items);
-        res.render("registeredaFO", {users:items});
-    }catch(err){
-        console.log('random message')
-        res.status(400).send('unable to retrieve data');
-    }
-});   
+// router.get('/userlist', async(req,res)=>{
+//     try{
+//         let items = await AgricO.find();
+//         console.log(items);
+//         res.render("registeredaFO", {users:items});
+//     }catch(err){
+//         console.log('random message')
+//         res.status(400).send('unable to retrieve data');
+//     }
+// });   
 
 
 //delete data
