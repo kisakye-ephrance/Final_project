@@ -97,9 +97,9 @@ app.get('/about',(req,res)=>{
   })
   
   // GET FARMERONE DASH
-  app.get('/farmerOdash', (req,res)=>{
-    res.render('farmerOdash', {title:'FO Dash'})
-  })
+   app.get('/farmerOdash', (req,res)=>{
+     res.render('farmerOdash', {title:'FO Dash'})
+   })
 
   //GET FARMER DASH
   app.get('/farmerdash', (req,res)=>{

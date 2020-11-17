@@ -13,7 +13,7 @@ const agricOSchema= new mongoose.Schema({
         unique:true,
         required:'please enter user name'
     },
-    
+    role:String,
     gender: String,
 
     //password: {

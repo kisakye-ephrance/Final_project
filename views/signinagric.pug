@@ -19,9 +19,10 @@ br
           | SIGN IN
         input#name.form-control(type='text', placeholder='Username', name='username', required='')
         br
-        
         input#password.form-control(type='password', placeholder='Password', name='password', required='')
         br
+        
+        
         form(method="POST" action="/home")
             button.btn.btn-secondary(type='submit',  value='Submit' onSubmit='access_signinform()') Log in
              

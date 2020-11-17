@@ -12,9 +12,9 @@ router.get('/registerFO',(req,res)=>{
 })
 
 //registering farmer
-// router.get('/farmerregistration', (req,res)=>{
-//     res.render("registerUfarmer")
-// })
+router.get('/farmerregistration', (req,res)=>{
+     res.render("registerUfarmer")
+ });
 
 //router.get('/', (req,res)=>{
    //  res.render("signinagric")
