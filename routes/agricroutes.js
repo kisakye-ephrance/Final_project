@@ -2,9 +2,18 @@ const express = require('express');
 
 const router = express.Router();
 
+const multer = require('multer');
+
+ path = require('path');
+
+ const bodyParser = require('body-parser');
+
 //require the model
 const AgricO  = require('../models/agricO');
 const FarmerO = require('../models/FarmerO');
+const AO = require('../models/ao');
+const Ufarmer = require('../models/ufarmer');
+
 
 //registering farmer one
 router.get('/registerFO',(req,res)=>{
@@ -15,6 +24,11 @@ router.get('/registerFO',(req,res)=>{
 router.get('/farmerregistration', (req,res)=>{
      res.render("registerUfarmer")
  });
+
+ //registering ao
+router.get('/aoregistration', (req,res)=>{
+    res.render("signupao")
+});
 
 //router.get('/', (req,res)=>{
    //  res.render("signinagric")
@@ -36,6 +50,29 @@ router.get('/farmerregistration', (req,res)=>{
     
    //});
    //res.render("farmerone")
+
+   //save credentials for AO
+router.post('/aoregistration ', async(req,res)=>{
+    try{
+        const items = new AO(req.body);
+        await AO.register(items, req.body.password, (err)=>{
+            if (err)
+            {
+                throw(err)
+            }
+            res.redirect('/login')
+        // const agricO = new AgricO(req.body);
+        // await  agricO.save(()=>{
+        //     console.log('save successful')
+        //     res.redirect('/userlist')
+           // res.send('thank you for registration')
+            })
+    }
+    catch(err){
+        res.status(400).send('sorry something')
+        console.log(err)
+    }
+});
 
 //save data for AO
 router.post('/registerFO', async(req,res)=>{
@@ -186,6 +223,59 @@ try {
     res.status(404).send("Unable to update item in the database");
 }    
 });
+
+//uploading products
+//Setting image upload storage engine
+const storage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename:(req, file, cb)=>{
+      cb(null, file.fieldname + '-' + Date.now() + 
+      path.extname(file.originalname));
+    }
+  });
+  
+  //Image upload
+  const upload = multer({
+    storage: storage,
+  }).single('upload');
+
+  router.get('/uploadufarmer', (req,res)=>{
+      res.render("uploadufarmer")
+  });
+
+//save data to db - make sure to edit here
+router.post('/uploadufarmer', upload, async(req,res) =>{
+    try{
+        const ephrance= new Ufarmer(req.body);
+        ephrance.upload = req.file.filename;
+        await ephrance.save() 
+        res.redirect('viewfuploads')
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong')
+        console.log(err)
+    }
+});
+
+//retrieve data from db - make sure to edit here
+router.get('/viewfuploads', async(req,res) =>{
+    try{
+        let items = await Ufarmer.find()
+        console.log(items)
+        res.render('viewfuploads', {users: items})
+    }
+    catch(err) {
+        res.status(400).send('Unable to find items in the database')
+       
+    }
+})
+
+// router.get('/uf-list', (req,res) => {
+//     res.render('uf-list')
+// });
+
+
+  
 
 //exporting router
 module.exports = router;

@@ -1,0 +1,58 @@
+//formwhere the urban uploads images and post the details of its products.
+doctype 
+html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/sign.css')
+  title Document
+.header
+  .logo
+    img(src='images/ufarm_logo.png', alt='logo', height='85px', width='90px')
+br
+br
+br
+.container
+  .main
+    form(action='/uploadufarmer' name='uploadufarmer' method='POST' enctype="multipart/form-data")
+      h1
+        | REGISTRATION FORM
+      .form-group
+        .form-row
+          .col-sm-4
+            input#name.form-control(type='file', placeholder=' Upload a photo', name='upload')
+          .col-sm-4
+            input#username.form-control(type='text', placeholder='Product name', name='pname', required)
+          .col-sm-4
+            input#ward.form-control(type='text', placeholder='Ward name', name='ward', required)
+      
+       
+      .form-row
+        .col-sm-2
+          input#dor.form-control(type='text', placeholder='dateOfupload', name='dou', required)
+        .col-sm-3
+          input#nin.form-control(type='text', placeholder='Price', name='price', required)
+        .col-sm-3
+            input#password.form-control(type='text', placeholder='Quantity', name='quantity', required)
+     
+                
+               
+      fieldset.form-group
+        .row
+          legend.col-form-label.col-sm-2.pt-0 Product type
+          .col-sm-10
+            .form-check
+              input#activities.form-check-input(type='checkbox', name='producttype' )
+              label.form-check-label(for='checkbox')
+                | Organic
+            .form-check
+              input#activities.form-check-input(type='checkbox', name='producttype' )
+              label.form-check-label(for='checkbox')
+                | Non-organic
+               
+            input#submitDetails(type='submit', name='submitDetails', value='Submit')
+      
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

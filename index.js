@@ -83,10 +83,15 @@ app.get('/about',(req,res)=>{
   app.get('/contact',(req,res)=>{
     res.render("contact")
   })
-  
-  app.get('/home', (req,res)=>{
+
+  app.get('/home',(req,res)=>{
     res.render("home")
   })
+  
+  
+  // app.get('/aoregistration', (req,res)=>{
+  //   res.render("signupao")
+  // })
 
   //app.get('/registeredaFO',(req,res)=>{
     // res.render("registeredaFO")
@@ -106,10 +111,13 @@ app.get('/about',(req,res)=>{
     res.render('farmerdash', {title: 'FA Dash'})
   });
 
-  //app.get('/signin', (req,res)=>{
-    //res.render("signinagric")
- // })
+  // app.post('/aoregistration', (req,res)=>{
+  //   res.redirect("signinagric")
+  // })
 
+  // app.get('/login', (req,res)=>{
+  //   res.render("signinagric")
+  // })
   //app.post
   //created a server and have it listen on port 3000
 app.listen(3000, ()=> console.log('listening on port 3000'))

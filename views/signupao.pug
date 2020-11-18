@@ -1,0 +1,40 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/sign.css')
+  title Document
+.header
+  .logo
+    img(src='images/ufarm_logo.png', alt='logo', height='85px', width='90px')
+br
+br
+br
+.container
+  .main
+    form(name='aoregistrationform', method='POST' action='/aoregistration')
+      h1
+        | REGISTRATION FORM
+      .form-group
+        .form-row
+          .col-sm-4
+            input#name.form-control(type='text', placeholder=' Name', name='AOname', required='')
+          .col-sm-4
+            input#username.form-control(type='text', placeholder='Username', name='username', required='')
+
+      .form-group
+        .form-row
+          .col-sm-4
+            input#password.form-control(type='password', placeholder=' Password', name='password', required='')
+          .col-sm-4
+            input#role.form-control(type='text', placeholder='Role', name='role', required='')
+         
+      
+      br
+      input#submitDetails(type='submit', name='submitDetails', value='Submit' onSubmit='acess_aoregistrationform()')
+      br
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+//script(src='./public/validations/farmerval.js')

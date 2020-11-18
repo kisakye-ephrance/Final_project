@@ -1,0 +1,85 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='css/dashboard.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+  title Document
+
+nav.navbar.navbar-expand-lg.navbar-light(style='background-color: brown')
+  a.navbar-brand(href='') 
+    img(src='images/ufarm_logo.png', alt='logo', width='100px', height='100px')
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/home')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/contact') Contact 
+      li.nav-item
+        a.nav-link(href='/about' tabindex='-1' aria-disabled='true') About 
+      li.nav-item
+        a.nav-link(href='/farmerregistration') Add New Farmer   
+      li.nav-item
+        a.nav-link(href='/flist') View registered Farmers
+    form.search(action='/')
+        div.form-row
+            div.col-md-6
+                input.form-control(name='ward' placeholder="Enter your search term(gender) ...")
+            div.col-md-4
+                input.btn.btn-dark.btn-block(type="submit")
+            //div.col.form-group.col-md-2
+                a(href='/') Update Items
+body
+    header.card-header
+        h4.card-title UFarm
+    |&nbsp
+    table.table-striped.table-dark
+    
+    
+            tr
+                th Upload
+                th Product Name
+                th Ward   
+                th Date Of Upload
+                th Price
+                th Quantity
+                th Product type
+                th
+                
+
+                tbody
+            if users.length
+            each user in users
+                tr
+                    td 
+                      img(src='/uploads/'+ user.upload height='50px' width='50px')                 
+                    td #{user.pname}
+                    td #{user.ward}
+                    td #{user.dou}
+                    td #{user.price}
+                    td #{user.quantity}
+                    td #{user.producttype}                   
+                    
+                    td
+                        a(href='/updateF/'+user._id) Update
+                    td
+                        form(method="POST" action="/delete")
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-primary.btn-block(type="submit") Delete
+            else
+                p No registrations yet:(
+                    
+                    
+                    
+                        
+            
+
+              
+          
+script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js', integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n', crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6', crossorigin='anonymous')
