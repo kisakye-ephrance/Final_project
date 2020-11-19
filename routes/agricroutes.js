@@ -52,7 +52,7 @@ router.get('/aoregistration', (req,res)=>{
    //res.render("farmerone")
 
    //save credentials for AO
-router.post('/aoregistration ', async(req,res)=>{
+router.post('/aoregistration', async(req,res)=>{
     try{
         const items = new AO(req.body);
         await AO.register(items, req.body.password, (err)=>{
@@ -269,6 +269,31 @@ router.get('/viewfuploads', async(req,res) =>{
        
     }
 })
+
+router.get('/updateproduct/:id', async(req, res)=>{
+    try{
+      const updateProduce = await Ufarmer.findOne({_id:req.params.id})
+      res.render('updateproducts', {item: updateProduce})
+    }catch (err){
+      res.status(400).send("Failed to get produce data");
+    }
+  });
+
+  router.post('/updateproduct', upload, async(req,res)=>{
+    try{
+      if(req.file){
+      const img2 = await Ufarmer.findOneAndUpdate({_id:req.query.id}, req.body);
+      img2.upload = req.file.filename;
+      await img2.save()
+      } else{
+        await Ufarmer.findOneAndUpdate({_id:req.query.id}, req.body);
+      }
+      res.redirect('/viewfuploads');
+    }catch(err){
+      res.status(400).send('Sorry! Data posting failed')
+    }
+  });
+  
 
 // router.get('/uf-list', (req,res) => {
 //     res.render('uf-list')
