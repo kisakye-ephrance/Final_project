@@ -1,25 +1,24 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
 
 //create a schema
-const aOSchema= new mongoose.Schema({
-    username: {
-        type: String,
-        unique: true,
-        required: 'please enter username'
-    },
-
-    AOname:{
+const aoSchema= new mongoose.Schema({
+    name: {
         type:String,
         unique:true,
-        required:'please enter name'
+        required: 'Please Enter first name'
     },
 
-    role :{
-    type:String,
-    required:'please enter role'
-    },
-});
+    role:String,
+    username:String,
+    
+    
 
-aOSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model('AO', aOSchema);
+    
+
+    
+
+    
+  });
+  
+  
+    module.exports = mongoose.model('AO', aoSchema);

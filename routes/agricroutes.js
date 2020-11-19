@@ -11,9 +11,9 @@ const multer = require('multer');
 //require the model
 const AgricO  = require('../models/agricO');
 const FarmerO = require('../models/FarmerO');
-const AO = require('../models/ao');
+const Users = require('../models/Users');
 const Ufarmer = require('../models/ufarmer');
-
+const AO = require('../models/ao');
 
 //registering farmer one
 router.get('/registerFO',(req,res)=>{
@@ -55,7 +55,9 @@ router.get('/aoregistration', (req,res)=>{
 router.post('/aoregistration', async(req,res)=>{
     try{
         const items = new AO(req.body);
-        await AO.register(items, req.body.password, (err)=>{
+        const users = new Users(req.body)
+        items.save()
+        await Users.register(users, req.body.password, (err)=>{
             if (err)
             {
                 throw(err)
@@ -78,7 +80,9 @@ router.post('/aoregistration', async(req,res)=>{
 router.post('/registerFO', async(req,res)=>{
     try{
         const items = new AgricO(req.body);
-        await AgricO.register(items, req.body.password, (err)=>{
+        const users = new Users(req.body)
+        items.save()
+        await Users.register(users, req.body.password, (err)=>{
             if (err)
             {
                 throw(err)
@@ -179,17 +183,27 @@ router.post('/update', async (req, res) => {
 router.post('/farmerregistration', async(req,res)=>{
     try{
         const farmerO = new FarmerO(req.body);
-        await  farmerO.save(()=>{
-            console.log('save successful')
-            res.redirect('/flist')
+        const users = new Users(req.body)
+        farmerO.save()
+        await Users.register(users, req.body.password, (err)=>{
+            if (err)
+            {
+                throw(err)
+            }
+            res.redirect('/login')
+        // const agricO = new AgricO(req.body);
+        // await  agricO.save(()=>{
+        //     console.log('save successful')
+        //     res.redirect('/userlist')
            // res.send('thank you for registration')
-        })
+            })
     }
     catch(err){
         res.status(400).send('sorry something')
         console.log(err)
     }
 });
+
 
  //retrieve data for FO
  router.get('/flist', async(req,res)=>{

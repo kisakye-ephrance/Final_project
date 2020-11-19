@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser') ;
 const path = require('path');
-const AgricO  = require('./models/agricO');
+const Users = require('./models/Users');
 const agricroutes = require('./routes/agricroutes');
 const loginRoutes = require('./routes/loginroutes');
 
@@ -69,9 +69,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //passport configs
-passport.use(AgricO.createStrategy());
-passport.serializeUser(AgricO.serializeUser());
-passport.deserializeUser(AgricO.deserializeUser());
+passport.use(Users.createStrategy());
+passport.serializeUser(Users.serializeUser());
+passport.deserializeUser(Users.deserializeUser());
 
 app.use('/', agricroutes);
 app.use('/',loginRoutes);

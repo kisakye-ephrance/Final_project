@@ -19,9 +19,9 @@ br
       .form-group
         .form-row
           .col-sm-4
-            input#name.form-control(type='text', placeholder=' Name', name='Fname', required='')
+            input#name.form-control(type='text', placeholder=' Name', name='name', required='')
           .col-sm-4
-            input#email.form-control(type='email', placeholder='Email', name='Femail', required='')
+            input#email.form-control(type='text', placeholder='Username', name='username', required='')
       //
         <div class="form-group">
       .form-row
@@ -29,12 +29,17 @@ br
           input#dob.form-control(type='text', placeholder='dateOfBirth', name='dob', required='')
         .col-sm-3
           input#ward.form-control(type='text', placeholder='wardName', name='ward', required='')
+        .col-sm-3
+          input#ward.form-control(type='password', placeholder='Password', name='password', required='')
+          
       br
       .form-row
         .col-sm-3
           input#dor.form-control(type='text', placeholder='dateOfRegisttration', name='dor', required='')
         .col-sm-4
           input#nin.form-control(type='text', placeholder='NIN', name='nin', required='')
+        .col-sm-4
+          input#nin.form-control(type='text', Value='urbanfarmer', name='role', readonly)
       br
       .form-row
         .col-sm-4

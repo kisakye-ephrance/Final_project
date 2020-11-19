@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
+
 
 //create a schema
 const agricOSchema= new mongoose.Schema({
-    FOname: {
+    name: {
         type:String,
         unique:true,
         required: 'Please Enter first name'
@@ -73,5 +73,5 @@ const agricOSchema= new mongoose.Schema({
 
   });
   
-    agricOSchema.plugin(passportLocalMongoose);
+    
     module.exports = mongoose.model('AgricO', agricOSchema);

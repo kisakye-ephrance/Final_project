@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 
 //create a schema
 const farmerO= new mongoose.Schema({
-    Fname: {
+    name: {
         type:String,
         unique:true,
         required: 'Please Enter first name'
     },
+
+    role:String,
+    username:String,
     
     gender: String,
 
@@ -15,11 +18,7 @@ const farmerO= new mongoose.Schema({
        // required: 'Please Enter password'
    // },
 
-    Femail:{
-        type:String,
-        unique:true,
-        required:'please enter email'
-    },
+    
 
 
 
