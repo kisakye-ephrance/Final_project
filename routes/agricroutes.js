@@ -308,6 +308,20 @@ router.get('/updateproduct/:id', async(req, res)=>{
     }
   });
   
+//verify
+router.get('/verify/:id', async(req, res)=>{
+    if(req.session.user){
+    try{
+      const updateProduce = await Ufarmer.findOne({_id:req.params.id})
+      res.render('verify', {item: updateProduce})
+    }catch (err){
+      res.status(400).send("Failed to get produce data");
+    }
+}else{
+    console.log('cant find session')
+    res.redirect('/login')
+}
+  });
 
 // router.get('/uf-list', (req,res) => {
 //     res.render('uf-list')

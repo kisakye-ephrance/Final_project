@@ -48,7 +48,8 @@ body
                 th Price
                 th Quantity
                 th Product type
-                th
+                th Status
+                th Action
                 
 
                 tbody
@@ -62,7 +63,12 @@ body
                     td #{user.dou}
                     td #{user.price}
                     td #{user.quantity}
-                    td #{user.producttype}                   
+                    td #{user.producttype} 
+                    td #{user.status}    
+                    td 
+                        a(href='/verify/'+user._id)
+                          button.btn.btn-light.btn-block(type='submit') Verify
+                        
                     
                     td
                         a(href='/updateproduct/'+user._id) Update

@@ -15,7 +15,7 @@ const ufarmerSchema= new mongoose.Schema({
     dou: String,
     price: String,
     quantity: String,
-
+    status: String,
     producttype: String,
 
 });
