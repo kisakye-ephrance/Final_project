@@ -4,12 +4,10 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  //
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   link(rel='stylesheet', href='css/contact.css')
-  title Document
-nav.navbar.navbar-expand-sm.bg-light.navbar-secondary.justify-content-center
+  title Contact Page
+
+nav.navbar.navbar-expand-sm.bg-.navbar-secondary.justify-content-center(style='background-color:brown')
   a.navbar-brand
     img(src='images/ufarm_logo.png', alt='logo', width='100px', height='100px')
   ul.navbar-nav
@@ -18,9 +16,11 @@ nav.navbar.navbar-expand-sm.bg-light.navbar-secondary.justify-content-center
     li.nav-item
       a.nav-link(href='/contact') Contact
     li.nav-item
-      a.nav-link(href='/signin') Sign in
+      a.nav-link(href='/login') Sign in
     li.nav-item
       a.nav-link(href='#') Produce
+    li.nav-item
+      a.nav-link(href='/home') Home
 .container-fluid
   .row
     .column
