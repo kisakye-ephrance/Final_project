@@ -1,22 +1,17 @@
 //declare a function access_signupform
 const access_signinform = () => {
-
-    //console.log(e)
-    //e.preventdefault();
-    //const signin = document.signinform;
-  
-    const userName = document.signinform.name;
+    const userName = document.signinform.username;
     const userPassword = document.signinform.password;
     const userEmail = document.signinform.email;
     
 
-    const signinName = /^[a-zA-Z].*[\s\.]*$/;
+    const signinName = /^[a-zA-Z]{5,50}$/;
     if (userName.value.match(signinName)){
         console.log(userName.value);
         //alert("right input");
         //userName.style.border = "2px solid green";
     } else {
-        alert("wrong input");
+        alert("name must be between 5 and 50 characters ");
         userName.style.border = "2px solid red";
     }
     
@@ -27,21 +22,10 @@ const access_signinform = () => {
         //userPassword.style.border="2px solid green";
     }else {
         alert("password must be between 7-12 characters");
-        userPassword.style.border ="2px solid purple";
+        userPassword.style.border ="2px solid red";
        return false;
     };
+     }
+
+
     
-    const signinEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (userEmail.value.match(signinEmail)){
-       console.log(userEmail.value);
-        //alert("valid email");
-        //userEmail.style.border = "2px solid green";
-      } else {
-       alert("wrong email");
-          userEmail.style.border = "2px solid red";
-     };
-    // signin.addEventListener('submit',(event)=>{e.preventdefault(); return false},false);
-    }
-
-
-    //function mySubmitFunction(e) { e.preventDefault(); someBug(); return false; }
