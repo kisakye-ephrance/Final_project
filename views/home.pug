@@ -5,7 +5,7 @@ head
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet', href='css/home.css')
   title
-nav.navbar.navbar-expand-sm.bg-light.navbar-secondary.justify-content-center
+nav.navbar.navbar-expand-sm.bg.navbar-secondary.justify-content-center(style='background-color:brown')
   a.navbar-brand
     img(src='images/ufarm_logo.png', alt='logo', width='100px', height='100px')
   ul.navbar-nav
@@ -19,36 +19,20 @@ nav.navbar.navbar-expand-sm.bg-light.navbar-secondary.justify-content-center
       a.nav-link(href='#') Produce
     li.nav-item
       a.nav-link(href='/aoregistration') Signup AO
-//
-  <div class="homepage_info">
-  <p>
-  YOUR NUMBER ONE SOURCE OF INFORMATION
-  </p>
-  </div>
-.container-fluid
+
+body
+  .container-fluid
   .row
-    #demo.carousel.slide(data-ride='carousel')
-      // Indicators
-      ul.carousel-indicators
-        li.active(data-target='#demo', data-slide-to='0')
-        li(data-target='#demo', data-slide-to='1')
-        li(data-target='#demo', data-slide-to='2')
-      // The slideshow
-      .carousel-inner
-        .carousel-item.active
-          img(src='images/HorticultureLivemint-k3U--621x414@LiveMint.webp', alt='')
-        .carousel-item
-          img(src='images/women.jpg', alt='')
-          .carousel-caption
-            h3 Los Angeles
-            p We had such a great time in LA!
-        .carousel-item
-          img(src='images/fruits.jpg', alt='')
-      // Left and right controls
-      a.carousel-control-prev(href='#demo', data-slide='prev')
-        span.carousel-control-prev-icon
-      a.carousel-control-next(href='#demo', data-slide='next')
-        span.carousel-control-next-icon
+    .column
+      .col-md-8
+        .card
+          .card-body
+            h1 
+              | WELCOME TO UFARM PLATFORM
+            h1
+              | YOUR NUMBER ONE SOURCE OF INFORMATION
+            
+ 
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
