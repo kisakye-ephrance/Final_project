@@ -321,14 +321,17 @@ router.get('/verify/:id', async(req, res)=>{
     console.log('cant find session')
     res.redirect('/login')
 }
-  });
+});
 
-// router.get('/uf-list', (req,res) => {
-//     res.render('uf-list')
-// });
-
-
-  
+// customer page
+router.get('/farmerproduce', async(req,res)=>{
+    try{
+        const status = await Ufarmer.find({status: 'Approved'})
+        res.render('farmerproduce', {items: status})
+    }catch(err){
+        res.status(400).send('display of products failed')
+    }  
+});
 
 //exporting router
 module.exports = router;

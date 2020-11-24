@@ -2,7 +2,7 @@
 const access_signinform = () => {
     const userName = document.signinform.username;
     const userPassword = document.signinform.password;
-    const userEmail = document.signinform.email;
+  
     
 
     const signinName = /^[a-zA-Z]{5,50}$/;

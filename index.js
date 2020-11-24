@@ -111,6 +111,11 @@ app.get('/about',(req,res)=>{
     res.render('farmerdash', {title: 'FA Dash'})
   });
 
+  //get customer page
+  // app.get('/farmerproduce',(req,res)=>{
+  //   res.render("farmerproduce")
+  // });
+
   // app.post('/aoregistration', (req,res)=>{
   //   res.redirect("signinagric")
   // })
