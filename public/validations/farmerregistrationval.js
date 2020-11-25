@@ -80,6 +80,7 @@ if (fPassword.value.match(userP)){
  } else {
     alert("phone number must be 10 characters and numeric only");
      fPhon.style.border = "2px solid red";
+     return false;
  };
 
  let genderInput =document.getElementById('gender')

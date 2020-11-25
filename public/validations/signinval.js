@@ -5,7 +5,7 @@ const access_signinform = () => {
   
     
 
-    const signinName = /^[a-zA-Z]{5,50}$/;
+    const signinName = /^[0-9a-zA-Z]{5,50}$/;
     if (userName.value.match(signinName)){
         console.log(userName.value);
         //alert("right input");
@@ -13,6 +13,7 @@ const access_signinform = () => {
     } else {
         alert("name must be between 5 and 50 characters ");
         userName.style.border = "2px solid red";
+        return false;
     }
     
     const signinPassword = /^\w{7,12}$/;

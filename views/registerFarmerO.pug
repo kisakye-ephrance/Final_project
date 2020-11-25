@@ -13,84 +13,80 @@ br
 br
 .container
   .main
-    form(action='/registerFO' name='farmeroneform' method='POST')
+    form(action='/registerFO' onsubmit='return access_farmeroneform()' name='farmeroneform' method='POST')
       h1
         | REGISTRATION FORM
       .form-group
         .form-row
           .col-sm-4
-            input#name.form-control(type='text', placeholder=' Name', name='name', required)
+            input#name.form-control(type='text', placeholder=' Name', name='name', )
           .col-sm-4
-            input#username.form-control(type='text', placeholder='Username', name='username', required)
+            input#username.form-control(type='text', placeholder='Username', name='username', )
           .col-sm-4
-            input#username.form-control(type='text', placeholder='Role', name='role', required)
-      //
-        <div class="form-group">
+            input#role.form-control(type='text', value='farmerone', name='role' readonly)
+      
       .form-row
         .col-sm-2
-          input#phonum.form-control(type='number', placeholder='UniqueFOnumber', name='foNum', required)
+          input#phonum.form-control(type='text', placeholder='UniqueFOnumber', name='foNum', )
         .col-sm-2
-          input#dob.form-control(type='text', placeholder='dateOfBirth', name='dob', required)
+          input#dob.form-control(type='text', placeholder='dateOfBirth', name='dob', onfocus='(this.type="date")', )
         .col-sm-3
-          input#ward.form-control(type='text', placeholder='Ward name', name='ward', required)
-      br
+          input#ward.form-control(type='text', placeholder='Ward name', name='ward', )
+      
       .form-row
         .col-sm-2
-          input#dor.form-control(type='text', placeholder='dateOfRegisttration', name='dor', required)
+          input#dor.form-control(type='text', placeholder='dateOfRegisttration', name='dor', onfocus='(this.type="date")', )
         .col-sm-3
-          input#nin.form-control(type='text', placeholder='NIN', name='nin', required)
+          input#nin.form-control(type='text', placeholder='NIN', name='nin', )
         .col-sm-3
-            input#password.form-control(type='password', placeholder='Password', name='password', required)
-      br
+            input#password.form-control(type='password', placeholder='Password', name='password', )
+      
       .form-row
         .col-sm-2
-          input.form-control(type='text', placeholder='Phonenumber', name='phonNum', required)
+          input.form-control(type='text', placeholder='Phonenumber', name='phonNum', )
         .col-sm-2
-          input.form-control(type='text', placeholder='periodOfStay', name='stayPeriod', required)
+          input.form-control(type='number', placeholder='periodOfStay', name='stayPeriod', )
         .col-sm-3
-          input.form-control(type='text', placeholder='residenceType', name='residence', required)
-          br
+          input.form-control(type='text', placeholder='residenceType', name='residence', )
+          
       fieldset.form-group
         .row
           legend.col-form-label.col-sm-2.pt-0 Gender
-          .col-sm-10
+          .col-sm-10#gender
             .form-check
-              input#femaleRadio.form-check-input(type='radio', name='gender', value='female', )
+              input#femaleRadio.form-check-input(type='radio', name='gender', value='female' )
               label.form-check-label(for='femaleRadio')
                 | Female
             .form-check
-              input#maleRadio.form-check-input(type='radio', name='gender', value='male', )
+              input#maleRadio.form-check-input(type='radio', name='gender', value='male' )
               label.form-check-label(for='maleRadio')
                 | Male
                 
-                br
-                br
       fieldset.form-group
         .row
           legend.col-form-label.col-sm-2.pt-0 Activities
-          .col-sm-10
+          .col-sm-10#activities
             .form-check
-              input#activities.form-check-input(type='checkbox', name='activities', value='Register farmers', )
-              label.form-check-label(for='checkbox')
+              input#register_activities.form-check-input(type='checkbox', name='activities', value='Register farmers' )
+              label.form-check-label(for='activities')
                 | Register Farmers
             .form-check
-              input#activities.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
-              label.form-check-label(for='checkbox')
+              input#quality_activities.form-check-input(type='checkbox', name='activities', value='Check for product quality' )
+              label.form-check-label(for='activities')
                 | Check for quality
             .form-check
-              input#activities.form-check-input(type='checkbox', name='activities', value='Check for product quality', )
-              label.form-check-label(for='checkbox')
+              input#approve_activities.form-check-input(type='checkbox', name='activities', value='Check for product quality')
+              label.form-check-label(for='activities')
                 | Approve products
-    
-      br
+      
       .form-row
         .col-sm-5
           h3 Directions
           textarea.form-control(required)
       
-      br
-      input#submitDetails(type='submit', name='submitDetails', value='Submit' onsubmit='access_farmeroneform()')
-      br
+      input#submitDetails(type='submit' value='Submit' )
+      
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='validations/farmeroregistrationval.js')
