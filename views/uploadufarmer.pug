@@ -21,29 +21,37 @@ br
       .form-group
         .form-row
           .col-sm-4
-            input#name.form-control(type='file', placeholder=' Upload a photo', name='upload')
+            input#product.form-control(type='file', placeholder=' Upload a photo', name='upload')
           .col-sm-4
-            input#username.form-control(type='text', placeholder='Product name', name='pname', )
+            input#productname.form-control(type='text', placeholder='Product name', name='pname', )
           .col-sm-4
             input#ward.form-control(type='text', placeholder='Ward name', name='ward', )
       
        
-      .form-row
-        .col-sm-2
-          input#dou.form-control(type='text', placeholder='dateOfupload', name='dou', onfocus='(this.type="date")' )
-        .col-sm-3
-          input#price.form-control(type='text', placeholder='Price', name='price', )
-        .col-sm-3
+        .form-row
+          .col-sm-3
+            input#dou.form-control(type='text', placeholder='dateOfupload', name='dou', onfocus='(this.type="date")' )
+          .col-sm-3
+            input#price.form-control(type='text', placeholder='Price', name='price', )
+          .col-sm-2
             input#quantity.form-control(type='text', placeholder='Quantity', name='quantity', )
 
-      .form-row
-        .col-sm-2
-          input#status.form-control(type='text', value='pending', hidden name='status')
+        .form-row
+          .col-sm-2
+            input#status.form-control(type='text', value='pending', hidden name='status')
         
-      .form-row
-        .col-sm-5
-          h3 Directions
-          textarea.form-control()
+        .form-row    
+          .col-sm-3
+            input#email.form-control(type='email', placeholder='Email', name='mail')
+          .col-sm-3
+            input#username.form-control(type='text', placeholder='Username', name='username')
+          .col-sm-3
+            input#phone.form-control(type='text', placeholder='Phone', name='phonNum')
+        
+        .form-row
+          .col-sm-5
+            h3 Directions
+            textarea.form-control()
             
                
       fieldset.form-group

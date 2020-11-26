@@ -37,47 +37,48 @@ body
     header.card-header
         h4.card-title UFarm
     |&nbsp
-    table.table-striped.table-dark
-    
-    
-            tr
-                th Name
-                th Phone
-                th Gender     
-                th Nin
-                th DOB
-                th DOR
-                th Ward
-                th Activities
-                th
-                
+    .table
+      table.table-striped.table-dark
+      
+      
+              tr
+                  th Name
+                  th Phone
+                  th Gender     
+                  th Nin
+                  th DOB
+                  th DOR
+                  th Ward
+                  th Activities
+                  th
+                  
 
-                tbody
-            if userF.length
-            each user in userF
-                tr
-                    td #{user.name}                   
-                    td #{user.phonNum}
-                    td #{user.gender}
-                    td #{user.nin}
-                    td #{user.dob}
-                    td #{user.dor}
-                    td #{user.ward}                   
-                    td #{user.activities}
-                    
-                    td
-                        a(href='/updateF/'+user._id) Update
-                    td
-                        form(method="POST" action="/delete")
-                            input(type="hidden", placeholder="", name="id", value=user._id)
-                            button.btn.btn-primary.btn-block(type="submit") Delete
-            else
-                p No registrations yet:(
-                    
-                    
-                    
-                        
-            
+                  tbody
+              if userF.length
+              each user in userF
+                  tr
+                      td #{user.name}                   
+                      td #{user.phonNum}
+                      td #{user.gender}
+                      td #{user.nin}
+                      td #{user.dob}
+                      td #{user.dor}
+                      td #{user.ward}                   
+                      td #{user.activities}
+                      
+                      td
+                          a(href='/updateF/'+user._id) Update
+                      td
+                          form(method="POST" action="/delete")
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-primary.btn-block(type="submit") Delete
+              else
+                  p No registrations yet:(
+                      
+                      
+                      
+                          
+              
 
               
           

@@ -37,49 +37,60 @@ body
     header.card-header
         h4.card-title UFarm
     |&nbsp
-    table.table-striped.table-dark
-    
-    
-            tr
-                th Upload
-                th Product Name
-                th Ward   
-                th Date Of Upload
-                th Price
-                th Quantity
-                th Product type
-                th Availability Status
-                th Status
-                th Action
-                
+    .table
+      table.table-striped.table-dark
+      
+      
+              tr
+                  th Upload
+                  th Product Name
+                  th Ward   
+                  th Date Of Upload
+                  th Price
+                  th Quantity
+                  th Type
+                  th Payment mode
+                  th Delivery mode
+                  th Availability Status
+                  th Status
+                  th Name
+                  th Phone
+                  th Email
+                  th Action
+                  
 
-                tbody
-            if users.length
-            each user in users
-                tr
-                    td 
-                      img(src='/uploads/'+ user.upload height='50px' width='50px')                 
-                    td #{user.pname}
-                    td #{user.ward}
-                    td #{user.dou}
-                    td #{user.price}
-                    td #{user.quantity}
-                    td #{user.producttype} 
-                    td #{user.availability}
-                    td #{user.status}    
-                    td 
-                        a(href='/verify/'+user._id)
-                          button.btn.btn-light.btn-block(type='submit') Verify
-                        
-                    
-                    td
-                        a(href='/updateproduct/'+user._id) Update
-                    td
-                        form(method="POST" action="/delete")
-                            input(type="hidden", placeholder="", name="id", value=user._id)
-                            button.btn.btn-primary.btn-block(type="submit") Delete
-            else
-                p No registrations yet:(
+                  tbody
+              if users.length
+              each user in users
+                  tr
+                      td 
+                        img(src='/uploads/'+ user.upload height='50px' width='50px')                 
+                      td #{user.pname}
+                      td #{user.ward}
+                      td #{user.dou}
+                      td #{user.price}
+                      td #{user.quantity}
+                      td #{user.producttype} 
+                      td #{user.modeofpayment}
+                      td #{user.modeofdelivery}
+                      td #{user.availability}
+                      td #{user.status}    
+                      td #{user.username}
+                      td #{user.phonNum}
+                      td #{user.mail}
+                      td 
+                          a(href='/verify/'+user._id)
+                            button.btn.btn-light.btn-block(type='submit') Verify
+                          
+                      
+                      td
+                          a(href='/updateproduct/'+user._id) Update
+                      td
+                          form(method="POST" action="/delete")
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-primary.btn-block(type="submit") Delete
+              else
+                  p No registrations yet:(
                     
                     
                     

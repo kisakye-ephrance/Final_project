@@ -5,7 +5,6 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  link(rel='stylesheet', href='')
   title Farmer produce
 
 nav.navbar.navbar-expand-sm.bg-.navbar-secondary.justify-content-center(style='background-color:brown')
@@ -23,15 +22,38 @@ nav.navbar.navbar-expand-sm.bg-.navbar-secondary.justify-content-center(style='b
     li.nav-item
       a.nav-link(href='/home') Home
 body
-    .container-fluid
-    if items.length
-    each item in items
-      .row
-        .column
-          .col-md-2
-            .card
-            .card-body
-             p #{item.pname}
-              img(src='/uploads/'+ item.upload height='50px' width='50px')  
-             p #{item.price}
-             p #{item.quantity}
+    .table
+      table.table-striped.table-dark
+      
+      
+              tr
+                  th Product
+                  th Name
+                  th Quantity
+                  th Price   
+                  th Type
+                  th Payment method 
+                  th Delivery method
+                  th Farmer Name
+                  th Phone
+                  th Email
+                  th Availability 
+
+                  tbody
+              if items.length
+              each item in items
+                  tr
+                      td 
+                        img(src='/uploads/'+ item.upload height='50px' width='50px')  
+                      td #{item.pname}
+                      td #{item.quantity}
+                      td #{item.price}
+                      td #{item.producttype}
+                      td #{item.modeofpayment}
+                      td #{item.modeofdelivery}
+                      td #{item.username}
+                      td #{item.phonNum}
+                      td #{item.mail}
+                      td #{item.availability}
+                      
+                    
