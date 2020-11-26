@@ -40,7 +40,7 @@ const fuserName = /^[0-9a-zA-Z]{5,50}$/;
 
 
 //validate for ward
-const userW = /^[0-9a-zA-Z]+$/;
+const userW = /^[0-9a-zA-Z ]+$/;
 if (fWard.value.match(userW)){
    
  //    alert("right input");
@@ -62,7 +62,7 @@ if (fPassword.value.match(userP)){
 
  
  //validation for Nin
- const userN = /^[0-9a-zA-Z]{13}$/;
+ const userN = /^[0-9a-zA-Z]{13}+$/;
  if (fNin.value.match(userN)){
    
  //    alert("right input");

@@ -115,7 +115,7 @@ if (foResidence.value.match(residenceType)){
     return false;
 };
 
-//vlidations for gender
+//validations for gender
 let genderInput =document.getElementById('gender')
  //searching the element fro all input elements that are of type radio
  let radioarray = genderInput.querySelectorAll("input[type='radio']")

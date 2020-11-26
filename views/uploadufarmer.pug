@@ -15,7 +15,7 @@ br
 br
 .container
   .main
-    form(action='/uploadufarmer' name='uploadufarmer' method='POST' enctype="multipart/form-data")
+    form(action='/uploadufarmer' onsubmit='return access_uploadufarmer()' name='uploadufarmer' method='POST' enctype="multipart/form-data")
       h1
         | REGISTRATION FORM
       .form-group
@@ -23,40 +23,84 @@ br
           .col-sm-4
             input#name.form-control(type='file', placeholder=' Upload a photo', name='upload')
           .col-sm-4
-            input#username.form-control(type='text', placeholder='Product name', name='pname', required)
+            input#username.form-control(type='text', placeholder='Product name', name='pname', )
           .col-sm-4
-            input#ward.form-control(type='text', placeholder='Ward name', name='ward', required)
+            input#ward.form-control(type='text', placeholder='Ward name', name='ward', )
       
        
       .form-row
         .col-sm-2
-          input#dor.form-control(type='text', placeholder='dateOfupload', name='dou', required)
+          input#dou.form-control(type='text', placeholder='dateOfupload', name='dou', onfocus='(this.type="date")' )
         .col-sm-3
-          input#nin.form-control(type='text', placeholder='Price', name='price', required)
+          input#price.form-control(type='text', placeholder='Price', name='price', )
         .col-sm-3
-            input#password.form-control(type='text', placeholder='Quantity', name='quantity', required)
+            input#quantity.form-control(type='text', placeholder='Quantity', name='quantity', )
 
       .form-row
         .col-sm-2
           input#status.form-control(type='text', value='pending', hidden name='status')
-     
-                
+        
+      .form-row
+        .col-sm-5
+          h3 Directions
+          textarea.form-control()
+            
                
       fieldset.form-group
         .row
           legend.col-form-label.col-sm-2.pt-0 Product type
-          .col-sm-10
+          .col-sm-10#producttype
             .form-check
-              input#activities.form-check-input(type='checkbox', name='producttype' )
-              label.form-check-label(for='checkbox')
+              input#organicradio.form-check-input(type='radio', name='producttype', value='organic')
+              label.form-check-label(for='organicradio')
                 | Organic
             .form-check
-              input#activities.form-check-input(type='checkbox', name='producttype' )
-              label.form-check-label(for='checkbox')
+              input#non-organicradio.form-check-input(type='radio', name='producttype' value='non-organic' )
+              label.form-check-label(for='non-organicradio')
                 | Non-organic
+
+      fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Mode Of Payment
+            .col-sm-10#modeofpayment
+              .form-check
+                input#cash_payment.form-check-input(type='checkbox', name='modeofpayment', value='Cash')
+                label.form-check-label(for='modeofpayment')
+                  | Cash
+              .form-check
+                input#mm_payment.form-check-input(type='checkbox', name='modeofpayment', value='Mobile money')
+                label.form-check-label(for='modeofpayment')
+                  | Mobile money
+
+      fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Mode Of Delivery
+            .col-sm-10#modeofdelivery
+              .form-check
+                input#pick_delivery.form-check-input(type='checkbox', name='modeofdelivery', value='Pick up')
+                label.form-check-label(for='modeofdelivery')
+                  | Pick Up
+              .form-check
+                input#home_delivery.form-check-input(type='checkbox', name='modeofdelivery', value='Home delivery')
+                label.form-check-label(for='modeofdeliverey')
+                  | Home delivery
+              
+      fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Availability
+            .col-sm-10#availability
+              .form-check
+                input#availability.form-check-input(type='radio', name='availability', value='Available')
+                label.form-check-label(for='availability')
+                  | Available
+              .form-check
+                input#non-availability.form-check-input(type='radio', name='availability', value='Not available')
+                label.form-check-label(for='availability')
+                  | Not Available (N/A)
                
-            input#submitDetails(type='submit', name='submitDetails', value='Submit')
+      input#submitDetails(type='submit' value='Submit')
       
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='validations/uploadfarmerval.js')

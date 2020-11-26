@@ -48,6 +48,7 @@ body
                 th Price
                 th Quantity
                 th Product type
+                th Availability Status
                 th Status
                 th Action
                 
@@ -64,6 +65,7 @@ body
                     td #{user.price}
                     td #{user.quantity}
                     td #{user.producttype} 
+                    td #{user.availability}
                     td #{user.status}    
                     td 
                         a(href='/verify/'+user._id)

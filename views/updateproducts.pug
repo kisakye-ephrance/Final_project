@@ -32,6 +32,22 @@ header.card-header
                         td 
                             input.form-control(value = item.quantity name ="quantity")
 
+                    tr
+                        th Availability
+                        td 
+                            fieldset.form-group
+                                .row
+                                    legend.col-form-label.col-sm-2.pt-0 Availability
+                                    .col-sm-10#availability
+                                    .form-check
+                                        input#availability.form-check-input(type='radio', name='availability', value='Available')
+                                        label.form-check-label(for='availability')
+                                        | Available
+                                    .form-check
+                                        input#non-availability.form-check-input(type='radio', name='availability', value='Not available')
+                                        label.form-check-label(for='availability')
+                                        | Not Available (N/A)
+
                     
 
                         td(colspan="2")

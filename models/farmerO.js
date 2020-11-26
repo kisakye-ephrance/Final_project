@@ -48,12 +48,11 @@ const farmerO= new mongoose.Schema({
       unique:true,
       required:'enter ID'
     
-    }
+    },
 
-    //activities:{
-     // type:String,
-   // required:'please enter activities'
-    //}
+    activities: [{type: String}]
+
+    
 
   });
   

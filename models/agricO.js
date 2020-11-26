@@ -66,10 +66,7 @@ const agricOSchema= new mongoose.Schema({
         required:'enter residence type'
     },
 
-    //activities:{
-     // type:String,
-   // required:'please enter activities'
-    //}
+    activities: [{type: String}]
 
   });
   
