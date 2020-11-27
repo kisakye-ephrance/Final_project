@@ -1,0 +1,76 @@
+doctype 
+html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/sign.css')
+  title Document
+body
+  .header
+    .logo
+      img(src='images/ufarm_logo.png', alt='logo', height='85px', width='90px')
+
+  .container
+    .main
+      form(name='bookingform'  method='POST' action='/booking' onsubmit='return access_bookingform()')
+        h1
+          | BOOKING FORM
+        .form-group
+          .form-row
+            .col-sm-4
+              input#name.form-control(type='text', placeholder=' Name', name='name')
+            .col-sm-3
+              input#phone.form-control(type='text', placeholder='Phone', name='phonNum')
+            .col-sm-4
+              input#email.form-control(type='email', placeholder='Email', name='mail')
+        
+        
+        .form-row
+          .col-sm-3
+            input#dob.form-control(type='text', placeholder='dateOfBooking', name='dob', onfocus='(this.type="date")')
+          .col-sm-3
+            input#fname.form-control(type='text', placeholder='Farmer Name', name='faname')
+          .col-sm-3
+            input#proname.form-control(type='text', placeholder='Product Name', name='pname')
+            
+        
+        .form-row
+          .col-sm-2
+            input#quantity.form-control(type='text', placeholder='Quantity', name='quantity')
+          .col-sm-3
+            input#dod.form-control(type='text', placeholder='Deadline Of Delivery', name='dod', onfocus='(this.type="date")')
+        
+        fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Mode of Payment
+            .col-sm-10#modeofpayment
+              .form-check
+                input#cash_payment.form-check-input(type='radio', name='modeofpayment', value='cash')
+                label.form-check-label(for='cash_payment')
+                  | Cash
+              .form-check
+                input#mm_payment.form-check-input(type='radio', name='modeofpayment', value='mobile money')
+                label.form-check-label(for='mm_payment')
+                  | Mobile Money
+
+                  
+        
+        fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Mode of Delivery
+            .col-sm-10#modeofdelivery
+              .form-check
+                input#home_delivery.form-check-input(type='radio', name='modeofdelivery', value='home delivery')
+                label.form-check-label(for='home_delivery')
+                  | Home delivery
+              .form-check
+                input#pickup_delivery.form-check-input(type='radio', name='modeofdelivery', value='pick up')
+                label.form-check-label(for='pickup_delivery')
+                  | Pick up
+        input#submitDetails(type='submit' value='Submit')
+        
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+  script(src='validations/customerval.js')

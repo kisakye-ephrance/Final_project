@@ -1,0 +1,52 @@
+DOCTYPE 
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+    title 
+  body
+header.card-header
+        h4.card-title Welcome p Here is your information
+            form(method="post" action="/updateB?id="+bookings._id)
+                table.table
+                    thead.thead-dark
+                        tr
+                            th Product
+                            td 
+                                input.form-control(value = bookings.pname name ="pname")
+                        
+                    
+                        tr
+                            th Mode Of Payment
+                            td 
+                                label Cash&nbsp
+                                input(value= "cash" type="radio" checked = bookings.modeofpayment==="Cash" name="modeofpayment") 
+                                label &nbspMobile money&nbsp
+                                input(value= "mobile money" type="radio" checked = bookings.modeofpayment==="Mobile money" name="modeofpayment")
+
+                        tr
+                            th Mode Of Delivery
+                            td 
+                                label Home Delivery&nbsp
+                                input(value= "home delivery" type="radio" checked = bookings.modeofdelivery==="Home delivery" name="modeofdelivery") 
+                                label &nbspPick up&nbsp
+                                input(value= "pick up" type="radio" checked = bookings.modeofdelivery==="Pick up" name="modeofdelivery")       
+                        tr
+                            th Date of Booking
+                            td 
+                                input.form-control(value = bookings.dob name ="dob")
+                        tr
+                            th Deadline Of Delivery
+                            td 
+                                input.form-control(value = bookings.dod name ="dod")
+
+                        tr
+                            th 
+                            td 
+                                input.form-control(value = bookings.quantity name ="quantity")
+
+                        
+
+                            td(colspan="2")
+                                button.btn.btn-dark.btn-block(type="submit") Update

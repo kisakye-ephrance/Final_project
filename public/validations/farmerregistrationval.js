@@ -12,9 +12,7 @@ const fDob = document.farmerregistrationform.dob;
 
 //validation for name;
 const regName = /^[a-zA-Z ]{5,50}$/
-    // let regname =/^[a-zA-Z].*(\w\{5,50})+$/
     if (fName.value.match(regName)){
-       
     //    alert("right input");
     //     fName.style.border = "2px solid green";
     } else {

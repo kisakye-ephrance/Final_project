@@ -14,6 +14,7 @@ const FarmerO = require('../models/FarmerO');
 const Users = require('../models/Users');
 const Ufarmer = require('../models/ufarmer');
 const AO = require('../models/ao');
+const Customer = require('../models/customer')
 
 //registering farmer one
 router.get('/registerFO',(req,res)=>{
@@ -209,6 +210,9 @@ router.post('/farmerregistration', async(req,res)=>{
  router.get('/flist', async(req,res)=>{
     try{
         let items = await FarmerO.find();
+        // if (req.query.name) {
+        //     items = await FarmerO.find({name: req.query.name })
+        // }
         console.log(items);
         res.render("registeredF", {userF:items});
     }catch(err){
@@ -323,6 +327,8 @@ router.get('/verify/:id', async(req, res)=>{
 }
 });
 
+
+// customer routes
 // customer page
 router.get('/farmerproduce', async(req,res)=>{
     try{
@@ -333,7 +339,56 @@ router.get('/farmerproduce', async(req,res)=>{
     }  
 });
 
+//booking form routes
+router.get('/booking', (req,res)=>{
+    res.render("bookingform")
+});
 
+//saving customer data
+router.post('/booking', async(req,res)=>{
+    try{
+        const customer = new Customer(req.body);
+        await customer.save(() => {
+            console.log('save success')
+            res.redirect('/customerlist')
+        })
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong.')
+        console.log(err)
+    }   
+});
+
+//retrieve data for customer
+router.get('/customerlist', async(req,res)=>{
+    try{
+        let bookings = await Customer.find();
+        console.log(bookings);
+        res.render("customerbookings", {customer:bookings});
+    }catch(err){
+        console.log('random message')
+        res.status(400).send('unable to retrieve data');
+    }
+});   
+
+//update bookings routes
+router.get('/updateB/:id', async(req, res)=>{
+    try{
+      const updateBookings = await Customer.findOne({_id:req.params.id})
+      res.render('updatebookings', {bookings: updateBookings})
+    }catch (err){
+      res.status(400).send("Failed to get bookings data");
+    }
+  });
+
+  router.post('/updateB', async (req, res) => {
+    try {
+        await Customer.findOneAndUpdate({_id:req.query.id}, req.body)
+        res.redirect('/customerlist');
+    } catch (err) {
+        res.status(404).send("Unable to update bookings in the database");
+    }    
+    });
 
 //exporting router
 module.exports = router;
